@@ -17,7 +17,7 @@ bot.on('ready', () => {
     console.log("Bot Ready !");
 });
 
-bot.login('NTY1MjU5NDc4NzYxNjAzMDkw.XKz0_Q.KtXpqmudhdo_msuYHwRypqe6LHQ');
+bot.login(process.env.TOKEN);
 
 bot.on('message', message => {                                                          //Début du ping
     if (message.content === "ping"){
