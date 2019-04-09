@@ -40,16 +40,16 @@ bot.on('message', message => {                                                  
         random();
         
         if (randnum == 1){
-            message.reply("(Réponse numéro 1)");
+            message.reply("1");
             console.log(randnum);
         }
     
         if (randnum == 2){
-            message.reply("(Réponse numéro 2)");
+            message.reply("2");
             console.log(randnum);
         }
         if (randnum == 3){
-            message.reply("(Réponse numéro 3)");
+            message.reply("3");
             console.log(randnum);
         }                                                                                                      //Fin Réponse Aléatoire
     }
