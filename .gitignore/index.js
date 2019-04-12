@@ -19,13 +19,25 @@ bot.on('ready', () => {
 
 bot.login(process.env.TOKEN);
 
+bot.on("message", message => {
+  if (message.content.startsWith(prefix + "Roll")) {
+      var x = parseInt(100)
+      var x0 = parseInt(1)
+      var x1 = Math.floor(x - x0)
+      var x2 = Math.floor(Math.random() * x1)
+      var x3 = parseInt(x2)
+      var résultat = Math.floor(x3 + x0)
+    message.channel.send(`${résultat}`)
+  }
+})
+
 bot.on('message', message => {                                                          //Début du ping
     if (message.content === "ping"){
         message.reply("pong");
         console.log('ping pong');                                                       //Fin du ping
-    }
+    }    
 
-    if(message.content === prefix + "help"){                                                                //Début du EMBED
+    if(message.content === prefix + "Help"){                                                                //Début du EMBED
         var help_embed = new Discord.RichEmbed()
         .setColor('#F3FF00')
         .addField("Commande du bot !", "/help: Affiche les commandes du bot !")
@@ -38,12 +50,10 @@ bot.on('message', message => {                                                  
 
     if (message.content === prefix + "Random"){                                                             //Début Réponse Aléatoire
         random();
-        
         if (randnum == 1){
             message.reply("1");
             console.log(randnum);
         }
-    
         if (randnum == 2){
             message.reply("2");
             console.log(randnum);
