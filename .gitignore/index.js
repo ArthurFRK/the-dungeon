@@ -13,60 +13,381 @@ var prefix = ("?");
 var randnum = 0
 
 bot.on('ready', () => {
-    bot.user.setPresence({ game: { name: 'Command = ?help', type: 0}})                  //Pour modifier "le jeu du bot"
+    bot.user.setPresence({ game: { name: 'Command = ?help', type: 0}}) //Pour modifier "le jeu du bot"
     console.log("Bot Ready !");
 });
 
-bot.login(process.env.TOKEN);
+bot.login("NTY1MjU5NDc4NzYxNjAzMDkw.XLDL3A.K7zP93xPGWJozzeRFxl0h5-2iXY"); //TOKEN
 
-bot.on("message", message => {
-  if (message.content.startsWith(prefix + "Roll")) {
-      var x = parseInt(100)
-      var x0 = parseInt(1)
-      var x1 = Math.floor(x - x0)
-      var x2 = Math.floor(Math.random() * x1)
-      var x3 = parseInt(x2)
-      var résultat = Math.floor(x3 + x0)
-    message.channel.send(`${résultat}`)
-  }
-})
-
-bot.on('message', message => {                                                          //Début du ping
+//TEST PING PONG
+bot.on('message', message => {                                                          
     if (message.content === "ping"){
         message.reply("pong");
-        console.log('ping pong');                                                       //Fin du ping
-    }    
-
-    if(message.content === prefix + "Help"){                                                                //Début du EMBED
-        var help_embed = new Discord.RichEmbed()
-        .setColor('#F3FF00')
-        .addField("Commande du bot !", "/help: Affiche les commandes du bot !")
-        .addField("interaction", "ping: Le bot répond pong !")
-        .setFooter("C'est tout pour ce embed !")
-    message.channel.sendEmbed(help_embed)
-        //message.channel.sendMessage("Voici les commandes du bot :\n -/help pour afficher les commandes")
-        console.log("Commande Help demandée !")
-    }                                                                                                       //Fin du EMBED
-
-    if (message.content === prefix + "Random"){                                                             //Début Réponse Aléatoire
-        random();
-        if (randnum == 1){
-            message.reply("1");
-            console.log(randnum);
-        }
-        if (randnum == 2){
-            message.reply("2");
-            console.log(randnum);
-        }
-        if (randnum == 3){
-            message.reply("3");
-            console.log(randnum);
-        }                                                                                                      //Fin Réponse Aléatoire
+        console.log('ping pong');                                                       
     }
+  
+//TEST ROLL A 2 COULEURS
+if (message.content.startsWith(prefix + "Roll")) {
+    var x = parseInt(100)
+    var x0 = parseInt(0)
+    var x1 = Math.floor(x - x0)
+    var x2 = Math.floor(Math.random() * x1)
+    var x3 = parseInt(x2)
+    var résultat = Math.floor(x3 + x0)
+    if (résultat < 50) {
+      message.channel.send({embed: {
+        title: `${résultat}`,
+        color: 16711680,
+      }})
+    } else if (résultat > 50) {
+      message.channel.send({embed: {
+        title: `${résultat}`,
+        color: 65280,
+      }})
+    } else if (résultat > 50) {
+      message.channel.send({embed: {
+        title: `${résultat}`,
+        color: 65280,
+      }})
+    } else {
+      message.channel.send({embed: {
+          title: `50`,
+          color: 0,
+      }})
+    }        
+}
+
+//CLASSE
+    if(message.content === prefix + "Classe"){
+        var embed1 = new Discord.RichEmbed()
+        .setTitle("**Les classes :**")
+        .addField("Gardien", "*Classe Tank*")
+        .addField("Prêtre", "*Classe Support*")
+        .addField("Mage", "*Classe Dégâts*")
+        .addField("Archer", "*Classe Dégâts*")
+        .addField("Voleur", "*Classe Dégâts*")
+        .addField("Chevalier", "*Classe Dégâts*")
+    message.channel.send(embed1)
+    }
+
+
+
+
+
+//ATTAQUE GARDIEN
+    if(message.content === prefix + "Attaque gardien"){
+        var embed1 = new Discord.RichEmbed()
+        .addField("**GARDIEN :**", "La classe qui a pour but d'encaisser les dégâts pour ses alliés")
+        .addField("Coup de bouclier", "Inflige des dégâts")
+        .addField("Provocation", "se fait focus")
+        .addField("Bouclier Humain", "Réduit les dégâts subis")
+    message.channel.send(embed1)
+    }
+//PROVOCATION
+    if(message.content === prefix + "Provocation"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage('https://media.giphy.com/media/oOiiv7aXg5nAkNvfw9/giphy.gif') //Image
+    message.channel.send(embed1)
+    }
+//COUP DE BOUCLIER
+    if(message.content === prefix + "Coup de bouclier"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://media.giphy.com/media/tB6MDLMA55U40/giphy.gif`) //Image
+    message.channel.send(embed1)
+    } 
+
+
+
+//ATTAQUE PRETRE
+    if(message.content === prefix + "Attaque prêtre"){
+        var embed1 = new Discord.RichEmbed()
+        .addField("**BUFFER :**", "La classe qui a pour but de soigner et protéger ses alliés")
+        .addField("Soin spirituel", "Soigne un allié")
+        .addField("Bouclier protecteur", "Met un bouclier sur un allié réduisant de 100% les dégâts subis à la prochaine attaque")
+        .addField("Faible Blocage", "Réduit les dégâts subis")
+    message.channel.send(embed1)
+    }
+    //SOIN SPIRITUEL
+    if(message.content === prefix + "Soin spirituel"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://media.giphy.com/media/HPFnMAD65WGfS/giphy.gif`) //Image
+    message.channel.send(embed1)
+    } 
+//BOUCLIER PROTECTEUR
+    if(message.content === prefix + "Bouclier protecteur"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://pa1.narvii.com/5760/6009230b6cfa24dc1296e83514ed9ad1304caf1f_hq.gif`) //Image
+    message.channel.send(embed1)
+    }
+
+
+
+//ATTAQUE ARCHER
+    if(message.content === prefix + "Attaque archer"){
+        var embed1 = new Discord.RichEmbed()
+        .addField("**ARCHER :**", "Une des classe qui a pour but d'infliger des dégâts à distance")
+        .addField("Tir à l’arc", "Inflige des dégâts")
+        .addField("Flèche chargée", "Tire une flèche et effectue un coup critique")
+        .addField("Faible Blocage", "Réduit les dégâts subis")
+    message.channel.send(embed1)
+    }
+//TIR A L'ARC
+    if(message.content === prefix + "Tir à l'arc"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`http://66.media.tumblr.com/6eba9f5b5fa490dcaf878451dc69273c/tumblr_nxgk73Mb411qam6y9o3_500.gif`) //Image
+    message.channel.send(embed1)
+    }
+//FLECHE CHARGE
+    if(message.content === prefix + "Flèche chargée"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://media.giphy.com/media/psqqazmAKeeMU/giphy.gif`) //Image
+    message.channel.send(embed1)
+    }  
+
+
+
+//ATTAQUE MAGE
+    if(message.content === prefix + "Attaque mage"){
+        var embed1 = new Discord.RichEmbed()
+        .addField("**MAGE :**", "Une des classe qui a pour but d'infliger des dégâts à distance")
+        .addField("Flamiche", "Inflige des dégâts")
+        .addField("Fuite du combat ", "Permet de fuir un combat")
+        .addField("Faible Blocage", "Réduit les dégâts subis")
+    message.channel.send(embed1)
+    }
+//FLAMICHE
+    if(message.content === prefix + "Flamiche"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://i.gifer.com/8oDd.gif`) //Image
+    message.channel.send(embed1)
+    } 
+//FUITE DU COMBAT
+    if(message.content === prefix + "Fuite du combat"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://media.giphy.com/media/1J2FKJ31JKn4I/giphy.gif`) //Image
+    message.channel.send(embed1)
+    }  
+
+
+
+//ATTAQUE VOLEUR
+    if(message.content === prefix + "Attaque voleur"){
+        var embed1 = new Discord.RichEmbed()
+        .addField("**VOLEUR :**", "Une des classe qui a pour but d'infliger des dégâts au corps à corps")
+        .addField("Coup de dague", "Inflige des dégâts")
+        .addField("Analyse instantanée ", "Permet d’esquiver à coup sûr")
+        .addField("Simple Blocage", "Réduit les dégâts subis")
+    message.channel.send(embed1)
+    }
+//COUP DE DAGUE
+    if(message.content === prefix + "Coup de dague"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://gifimage.net/wp-content/uploads/2017/10/danmachi-gif-3.gif`) //Image
+    message.channel.send(embed1)
+    } 
+//ANALYSE INSTANTANEE 
+    if(message.content === prefix + "Analyse instantanée"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://media.giphy.com/media/ti6JIbzy21Edy/giphy.gif`) //Image
+    message.channel.send(embed1)
+    }
+
+
+
+//ATTAQUE CHEVALIER
+    if(message.content === prefix + "Attaque chevalier"){
+        var embed1 = new Discord.RichEmbed()
+        .addField("**CHEVALIER :**", "Une des classe qui a pour but d'infliger des dégâts au corps à corps")
+        .addField("Coup d'épée", "Inflige des dégâts")
+        .addField("Transcendance ", "Reprends tous ses points de vie mais double les dégâts subis par la suite")
+        .addField("Simple Blocage", "Réduit les dégâts subis")
+    message.channel.send(embed1)
+    }
+//COUP D'EPEE
+    if(message.content === prefix + "Coup d'épée"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://media.giphy.com/media/10QC9oDFaLA0rC/giphy.gif`) //Image
+    message.channel.send(embed1)
+    } 
+//TRANSCENDANCE
+    if(message.content === prefix + "Transcendance"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`http://images6.fanpop.com/image/photos/40600000/-All-Might-s-Rage-all-might-hero-number-1-40670644-500-240.gif`) //Image
+    message.channel.send(embed1)
+    } 
+
+
+    
+//BOUCLIER HUMAIN
+    if(message.content === prefix + "Bouclier humain"){
+        var x = parseInt(30)
+        var x0 = parseInt(10)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage('https://media.giphy.com/media/l0HlymZ7Jv6JoiYjC/giphy.gif') //Image
+    message.channel.send(embed1)
+    }
+//SIMPLE BLOCAGE
+    if(message.content === prefix + "Simple blocage"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://media.giphy.com/media/11A5tg9rVGa7Ty/giphy.gif`) //Image
+    message.channel.send(embed1)
+    } 
+//FAIBLE BLOCAGE
+    if(message.content === prefix + "Faible blocage"){                                                                
+        var x = parseInt(200)
+        var x0 = parseInt(50)
+        var x1 = Math.floor(x - x0)
+        var x2 = Math.floor(Math.random() * x1)
+        var x3 = parseInt(x2)
+        var résultat = Math.floor(x3 + x0)
+        var embed1 = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .setImage(`https://i.gifer.com/LAfM.gif`) //Image
+    message.channel.send(embed1)
+    } 
 });
 
-function random(min, max) {                                                                                 //Fonction pour la réponse aléatoire
-    min = Math.ceil(0);
-    max = Math.floor(3);
-    randnum = Math.floor(Math.random() * (max - min +1) + min);
-}                                                                                                           //Fonction pour la réponse aléatoire
+
+
+//TEST GIF
+if(message.content === prefix + "TEST GIF"){                                                                
+    var x = parseInt(200)
+    var x0 = parseInt(50)
+    var x1 = Math.floor(x - x0)
+    var x2 = Math.floor(Math.random() * x1)
+    var x3 = parseInt(x2)
+    var résultat = Math.floor(x3 + x0)
+    var embed1 = new Discord.RichEmbed()
+    .setColor('#0099ff')
+    .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+    .setImage(`https://pa1.narvii.com/5760/6009230b6cfa24dc1296e83514ed9ad1304caf1f_hq.gif`) //Image
+message.channel.send(embed1)
+    console.log("Commande TEST GIF demandée !")
+}
+//TEST GIF 2
+if (message.content.startsWith(prefix + "gif")) {
+    var x = parseInt(100)
+    var x0 = parseInt(0)
+    var x1 = Math.floor(x - x0)
+    var x2 = Math.floor(Math.random() * x1)
+    var x3 = parseInt(x2)
+    var résultat = Math.floor(x3 + x0) 
+    message.channel.send({embed: {
+        title: `je veux voir un gif`,
+        color: 16711680,
+        image: {
+            url: "https://pa1.narvii.com/5760/6009230b6cfa24dc1296e83514ed9ad1304caf1f_hq.gif",
+        }
+    }})
+}
