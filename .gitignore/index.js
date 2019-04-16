@@ -129,7 +129,7 @@ if (message.content.startsWith(prefix + "Help")) {
 
 
 //AURA MEURTRIÈRE 
-if (message.content.startsWith(prefix + "Aura meurtrière 2")) {
+if (message.content.startsWith(prefix + "Aura meurtrière")) {
   var x = parseInt(100)
   var x0 = parseInt(0)
   var x1 = Math.floor(x - x0)
@@ -439,61 +439,4 @@ if (message.content.startsWith(prefix + "Aura meurtrière 2")) {
         .setImage(`https://i.gifer.com/LAfM.gif`) //Image
     message.channel.send(embed1)
     } 
-
-
-
-
- 
-//TEST GIF
-if (message.content === prefix + "GIF"){                                                                
-    var x = parseInt(200)
-    var x0 = parseInt(50)
-    var x1 = Math.floor(x - x0)
-    var x2 = Math.floor(Math.random() * x1)
-    var x3 = parseInt(x2)
-    var résultat = Math.floor(x3 + x0)
-    var embed1 = new Discord.RichEmbed()
-    .setColor('#0099ff')
-    .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
-    .setImage(`https://media1.tenor.com/images/9e62d8252eb65ddde9c5d7b996f566b5/tenor.gif?itemid=12673725`) //Image
-message.channel.send(embed1)
-    console.log("Commande TEST GIF demandée !")
-}
-
-
-
-//TEST ROLL A 3 Image
-if (message.content.startsWith(prefix + "3 images")) {
-    var x = parseInt(100)
-    var x0 = parseInt(0)
-    var x1 = Math.floor(x - x0)
-    var x2 = Math.floor(Math.random() * x1)
-    var x3 = parseInt(x2)
-    var résultat = Math.floor(x3 + x0)
-    if (résultat < 25) {
-      message.channel.send({embed: {
-        title: `${résultat} 0 à 25`,
-        color: 16711680,
-        image: {
-            url: "https://pa1.narvii.com/5760/6009230b6cfa24dc1296e83514ed9ad1304caf1f_hq.gif",
-        }
-      }})
-    } else if (résultat > 75) {
-      message.channel.send({embed: {
-        title: `${résultat} 75 à 100`,
-        color: 65280,
-        image: {
-            url: "https://i.imgur.com/ZGPxFN2.jpg",
-        }
-      }}) 
-    } else {
-      message.channel.send({embed: {
-          title: `${résultat} 2 5 à 75`,
-          color: 0,
-          image: {
-            url: "https://media.giphy.com/media/l0HlymZ7Jv6JoiYjC/giphy.gif",
-        }
-      }})
-    }        
-    }     
 });
