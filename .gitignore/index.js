@@ -25,7 +25,9 @@ bot.on('message', message => {
         message.reply("pong");
         console.log('ping pong');                                                       
     }
-  
+
+
+
 //TEST ROLL A 2 COULEURS
 if (message.content.startsWith(prefix + "Roll")) {
     var x = parseInt(100)
@@ -57,6 +59,60 @@ if (message.content.startsWith(prefix + "Roll")) {
     }        
 }
 
+
+
+//HELP
+if (message.content.startsWith(prefix + "Help")) {                                  
+    var x = parseInt(100)
+    var x0 = parseInt(1)
+    var x1 = Math.floor(x - x0)
+    var x2 = Math.floor(Math.random() * x1)
+    var x3 = parseInt(x2)
+    var résultat = Math.floor(x3 + x0)
+    message.channel.send({embed: {
+        color: 16776960,
+        title: "Commande HELP",
+        footer: {
+            text: "Menu de base"
+          },
+        fields: [{
+            name: "Univers",
+            value: "Résumé du monde"
+          },
+          {
+            name: "Fiche Personnage",
+            value: "Ce qui permet d'avoir son personnage"
+          },
+          {
+            name: "Races",
+            value: "Les 6 races"
+          },
+          {
+            name: "Classes",
+            value: "Ce qui défini votre façon de combattre"
+          },
+          {
+            name: "Métiers",
+            value: "Comment gagner de l'argent"
+          },
+          {
+            name: "Guildes",
+            value: "Créer une famille"
+          },
+          {
+            name: "La Tour",
+            value: "Votre objectif principale"
+          },
+          {
+            name: "Monstres",
+            value: "Ce contre quoi vous allez vous battre"
+          },
+    ],
+    }})
+}
+
+
+
 //CLASSE
     if(message.content === prefix + "Classe"){
         var embed1 = new Discord.RichEmbed()
@@ -71,6 +127,33 @@ if (message.content.startsWith(prefix + "Roll")) {
     }
 
 
+
+//AURA MEURTRIÈRE 
+if (message.content.startsWith(prefix + "Aura meurtrière 2")) {
+  var x = parseInt(100)
+  var x0 = parseInt(0)
+  var x1 = Math.floor(x - x0)
+  var x2 = Math.floor(Math.random() * x1)
+  var x3 = parseInt(x2)
+  var résultat = Math.floor(x3 + x0)
+  if (résultat < 50) {
+    message.channel.send({embed: {
+      title: `AURA MEURTRIÈRE`,
+      color: 0,
+      image: {
+          url: "https://media.giphy.com/media/12IS8ZMgRw2aLC/giphy.gif",
+      }
+    }})
+  } else {
+    message.channel.send({embed: {
+        title: `AURA MEURTRIÈRE`,
+        color: 0,
+        image: {
+          url: "https://thumbs.gfycat.com/BlindSnivelingCuttlefish-size_restricted.gif",
+      }
+    }})
+  }        
+  }     
 
 
 
@@ -108,7 +191,7 @@ if (message.content.startsWith(prefix + "Roll")) {
         var embed1 = new Discord.RichEmbed()
         .setColor('#0099ff')
         .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
-        .setImage(`https://media.giphy.com/media/tB6MDLMA55U40/giphy.gif`) //Image
+        .setImage(`https://data.whicdn.com/images/324850604/original.gif`) //Image
     message.channel.send(embed1)
     } 
 
@@ -117,14 +200,14 @@ if (message.content.startsWith(prefix + "Roll")) {
 //ATTAQUE PRETRE
     if(message.content === prefix + "Attaque prêtre"){
         var embed1 = new Discord.RichEmbed()
-        .addField("**BUFFER :**", "La classe qui a pour but de soigner et protéger ses alliés")
-        .addField("Soin spirituel", "Soigne un allié")
+        .addField("**PRÊTRE :**", "La classe qui a pour but de soigner et protéger ses alliés")
+        .addField("Soin rapide", "Soigne un allié")
         .addField("Bouclier protecteur", "Met un bouclier sur un allié réduisant de 100% les dégâts subis à la prochaine attaque")
         .addField("Faible Blocage", "Réduit les dégâts subis")
     message.channel.send(embed1)
     }
-    //SOIN SPIRITUEL
-    if(message.content === prefix + "Soin spirituel"){                                                                
+    //SOIN RAPIDE
+    if(message.content === prefix + "Soin rapide"){                                                                
         var x = parseInt(200)
         var x0 = parseInt(50)
         var x1 = Math.floor(x - x0)
@@ -134,7 +217,7 @@ if (message.content.startsWith(prefix + "Roll")) {
         var embed1 = new Discord.RichEmbed()
         .setColor('#0099ff')
         .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
-        .setImage(`https://media.giphy.com/media/HPFnMAD65WGfS/giphy.gif`) //Image
+        .setImage(`https://thumbs.gfycat.com/IncompleteJaggedGallinule-size_restricted.gif`) //Image
     message.channel.send(embed1)
     } 
 //BOUCLIER PROTECTEUR
@@ -254,7 +337,7 @@ if (message.content.startsWith(prefix + "Roll")) {
         var embed1 = new Discord.RichEmbed()
         .setColor('#0099ff')
         .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
-        .setImage(`https://gifimage.net/wp-content/uploads/2017/10/danmachi-gif-3.gif`) //Image
+        .setImage(`https://pa1.narvii.com/6231/8a7bf702e838cde21aaf749fb963b684f144f835_hq.gif`) //Image
     message.channel.send(embed1)
     } 
 //ANALYSE INSTANTANEE 
@@ -307,7 +390,7 @@ if (message.content.startsWith(prefix + "Roll")) {
         var résultat = Math.floor(x3 + x0)
         var embed1 = new Discord.RichEmbed()
         .setColor('#0099ff')
-        .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
+        .addField("Reprends tous ses points de vie mais double les dégâts subis par la suite") //TEXTE
         .setImage(`http://images6.fanpop.com/image/photos/40600000/-All-Might-s-Rage-all-might-hero-number-1-40670644-500-240.gif`) //Image
     message.channel.send(embed1)
     } 
@@ -325,7 +408,7 @@ if (message.content.startsWith(prefix + "Roll")) {
         var embed1 = new Discord.RichEmbed()
         .setColor('#0099ff')
         .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
-        .setImage('https://media.giphy.com/media/l0HlymZ7Jv6JoiYjC/giphy.gif') //Image
+        .setImage('https://66.media.tumblr.com/164109315faa6099d923173aff36f6fd/tumblr_osheoajJfU1tnk2buo9_500.gif') //Image
     message.channel.send(embed1)
     }
 //SIMPLE BLOCAGE
@@ -339,7 +422,7 @@ if (message.content.startsWith(prefix + "Roll")) {
         var embed1 = new Discord.RichEmbed()
         .setColor('#0099ff')
         .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
-        .setImage(`https://media.giphy.com/media/11A5tg9rVGa7Ty/giphy.gif`) //Image
+        .setImage(`https://media2.giphy.com/media/ouATgQU6FnpPG/source.gif`) //Image
     message.channel.send(embed1)
     } 
 //FAIBLE BLOCAGE
@@ -356,12 +439,13 @@ if (message.content.startsWith(prefix + "Roll")) {
         .setImage(`https://i.gifer.com/LAfM.gif`) //Image
     message.channel.send(embed1)
     } 
-});
 
 
 
+
+ 
 //TEST GIF
-if(message.content === prefix + "TEST GIF"){                                                                
+if (message.content === prefix + "GIF"){                                                                
     var x = parseInt(200)
     var x0 = parseInt(50)
     var x1 = Math.floor(x - x0)
@@ -371,23 +455,45 @@ if(message.content === prefix + "TEST GIF"){
     var embed1 = new Discord.RichEmbed()
     .setColor('#0099ff')
     .addField('Vous réduisez les dégâts de', `:shield: ${résultat}`) //TEXTE
-    .setImage(`https://pa1.narvii.com/5760/6009230b6cfa24dc1296e83514ed9ad1304caf1f_hq.gif`) //Image
+    .setImage(`https://media1.tenor.com/images/9e62d8252eb65ddde9c5d7b996f566b5/tenor.gif?itemid=12673725`) //Image
 message.channel.send(embed1)
     console.log("Commande TEST GIF demandée !")
 }
-//TEST GIF 2
-if (message.content.startsWith(prefix + "gif")) {
+
+
+
+//TEST ROLL A 3 Image
+if (message.content.startsWith(prefix + "3 images")) {
     var x = parseInt(100)
     var x0 = parseInt(0)
     var x1 = Math.floor(x - x0)
     var x2 = Math.floor(Math.random() * x1)
     var x3 = parseInt(x2)
-    var résultat = Math.floor(x3 + x0) 
-    message.channel.send({embed: {
-        title: `je veux voir un gif`,
+    var résultat = Math.floor(x3 + x0)
+    if (résultat < 25) {
+      message.channel.send({embed: {
+        title: `${résultat} 0 à 25`,
         color: 16711680,
         image: {
             url: "https://pa1.narvii.com/5760/6009230b6cfa24dc1296e83514ed9ad1304caf1f_hq.gif",
         }
-    }})
-}
+      }})
+    } else if (résultat > 75) {
+      message.channel.send({embed: {
+        title: `${résultat} 75 à 100`,
+        color: 65280,
+        image: {
+            url: "https://i.imgur.com/ZGPxFN2.jpg",
+        }
+      }}) 
+    } else {
+      message.channel.send({embed: {
+          title: `${résultat} 2 5 à 75`,
+          color: 0,
+          image: {
+            url: "https://media.giphy.com/media/l0HlymZ7Jv6JoiYjC/giphy.gif",
+        }
+      }})
+    }        
+    }     
+});
