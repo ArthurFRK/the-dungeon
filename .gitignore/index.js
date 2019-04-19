@@ -17,7 +17,7 @@ bot.on('ready', () => {
     console.log("Bot Ready !");
 });
 
-bot.login("NTY1MjU5NDc4NzYxNjAzMDkw.XLDL3A.K7zP93xPGWJozzeRFxl0h5-2iXY"); //TOKEN
+bot.login(process.env.TOKEN); //TOKEN
 
 //TEST PING PONG
 bot.on('message', message => {                                                          
